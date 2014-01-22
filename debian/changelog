@@ -1,0 +1,38 @@
+rtl-sdr (0.5.2.7.3ab6-1) unstable; urgency=low
+
+  * New upstream snapshot
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Sun, 29 Dec 2013 21:37:19 -0500
+
+rtl-sdr (0.5.1.14.360d-1~wheezy) stable; urgency=low
+
+  * New upstream snapshot
+  * GNU Radio LiveDVD 2013-1110
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Mon, 11 Nov 2013 12:46:00 -0500
+
+rtl-sdr (0.5.0.4.4914-2) unstable; urgency=low
+
+  * Use kfreebsd libusb
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Fri, 01 Nov 2013 17:16:42 -0400
+
+rtl-sdr (0.5.0.4.4914-1) stable; urgency=low
+
+  * New upstream snapshot (Closes: #701018).
+  * Match GNU Radio live distribution version
+  * Sponsored upload
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Sat, 28 Sep 2013 16:55:08 -0400
+
+rtl-sdr (0.5.0+git20130715-1) unstable; urgency=low
+
+  * Initial release (Closes: #701018).
+
+ -- Adam Cécile (Le_Vert) <gandalf@le-vert.net>  Mon, 15 Jul 2013 15:51:05 +0200
+
+librtlsdr (0.0git3198f14-1) unstable; urgency=low
+
+  * New upstream git
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Mon, 14 May 2012 20:28:18 -0400
