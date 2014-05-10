@@ -1,3 +1,11 @@
+rtl-sdr (0.5.3-2) unstable; urgency=low
+
+  * Upstream: lib: only print to stderr in tuner_r82xx_set_pll()
+  * Update man pages (New -M (modulation) and -E (option) and ppm setting)
+  * Have librtlsdr0 also install a blacklist for linux video drivers
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Sat, 08 Feb 2014 22:40:06 -0500
+
 rtl-sdr (0.5.3-1) unstable; urgency=low
 
   * New upstream git tag release

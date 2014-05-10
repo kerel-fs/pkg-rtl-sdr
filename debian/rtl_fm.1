@@ -33,33 +33,36 @@ stream on the computer sound card.
 .B  rtl_fm [-f freq] [-options] [filename]
 .SH OPTIONS
 .IP "-f frequency_to_tune_to [Hz]"
- (use multiple -f for scanning, requires squelch)
- (ranges supported, -f 118M:137M:25k)
+ use multiple -f for scanning, (requires squelch)
+ ranges supported, -f 118M:137M:25k
+.IP "[-M modulation (default: fm)]"
+ fm, wbfm, raw, am, usb, lsb
+ wbfm == -M fm -s 170k -o 4 -A fast -r 32k -l 0 -E deemp
+ raw mode outputs 2x16 bit IQ pairs
 .IP "-s sample_rate (default: 24k)"
 .IP "-d device_index (default: 0)"
 .IP "-g tuner_gain (default: automatic)"
 .IP "-l squelch_level (default: 0/off)"
 .IP "-o oversampling (default: 1, 4 recommended)"
+ for fm squelch is inverted
+.IP "[-o oversampling (default: 1, 4 recommended)]"
 .IP "-p ppm_error (default: 0)"
-.IP "-E sets lower edge tuning (default: center)"
-.IP "-N enables NBFM mode (default: on)"
-.IP "-W enables WBFM mode (default: off)"
- (-N -s 170k -o 4 -A fast -r 32k -l 0 -D)
-.IP filename
- (a '-' dumps samples to stdout)
- (omitting the filename also uses stdout)
+.IP "[-E enable_option (default: none)]"
+ use multiple -E to enable multiple options
+    edge:   enable lower edge tuning
+    dc:     enable dc blocking filter
+    deemp:  enable de-emphasis filter
+    direct: enable direct sampling
+    offset: enable offset tuning
+.IP "filename ('-' means stdout)"
+ omitting the filename also uses stdout
 .SH Experimental options
-.IP "-r output_rate (default: same as -s)"
-.IP "-t squelch_delay (default: 20)"
- (+values will mute/scan, -values will exit)
-.IP "-M enables AM mode (default: off)"
-.IP "-L enables LSB mode (default: off)"
-.IP "-U enables USB mode (default: off)"
-.IP "-D enables DSB mode (default: off)"
-.IP "-R enables raw mode (default: off, 2x16 bit output)"
-.IP "-F enables high quality FIR (default: off/square)"
-.IP "-D enables de-emphasis (default: off)"
-.IP "-C enables DC blocking of output (default: off)"
+.IP "[-r resample_rate (default: none / same as -s)]"
+.IP "[-t squelch_delay (default: 10)]"
+  +values will mute/scan, -values will exit
+.IP "[-F fir_size (default: off)]"
+    enables low-leakage downsample filter
+    size can be 0 or 9.  0 has bad roll off
 .IP "-A std/fast/lut choose atan math (default: std)"
 .IP filename
  (a '-' dumps samples to stdout)
@@ -68,10 +71,14 @@ stream on the computer sound card.
 Produces signed 16 bit ints, use Sox or aplay to hear them.
 .IP "rtl_fm ... - | play -t raw -r 24k -es -b 16 -c 1 -V1 -"
                   | aplay -r 24k -f S16_LE -t raw -c 1
-.IP "rtl_fm ...  -s 22.5k - | multimon -t raw /dev/stdin"
+         -M wbfm  | play -r 32k ...
+.IP "rtl_fm ...  -s 22050 - | multimon -t raw /dev/stdin"
 .SH SEE ALSO
 RTL-SDR wiki documentation:
 .B http://sdr.osmocom.org/trac/wiki/rtl-sdr
+.LP
+Rtl_fm Guide:
+.B http://kmkeen.com/rtl-demod-guide/
 .LP
 .sp
 sox(1), play(1), aplay(1)
