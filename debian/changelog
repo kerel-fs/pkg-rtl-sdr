@@ -1,3 +1,15 @@
+rtl-sdr (0.5.3-1) unstable; urgency=low
+
+  * New upstream git tag release
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Thu, 06 Feb 2014 20:45:38 -0500
+
+rtl-sdr (0.5.2.7.3ab6-1~bpo70+1) wheezy-backports; urgency=low
+
+  * Rebuild for wheezy-backports.
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Tue, 21 Jan 2014 19:34:16 -0500
+
 rtl-sdr (0.5.2.7.3ab6-1) unstable; urgency=low
 
   * New upstream snapshot
