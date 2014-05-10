@@ -1,3 +1,12 @@
+rtl-sdr (0.5.3-3) unstable; urgency=low
+
+  * Update to v0.5.3-5-g6ee5573
+    lib: handle events after canceling transfers
+    lib: change default number of transfers to 15
+    rtl_tcp: make all global variables static
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Sun, 13 Apr 2014 10:48:49 -0400
+
 rtl-sdr (0.5.3-2) unstable; urgency=low
 
   * Upstream: lib: only print to stderr in tuner_r82xx_set_pll()
