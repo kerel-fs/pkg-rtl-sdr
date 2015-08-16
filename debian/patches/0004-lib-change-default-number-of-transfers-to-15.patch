@@ -1,7 +1,7 @@
 From 89f73b183f2dac9c0dd75beca4cf2f77f20c4a36 Mon Sep 17 00:00:00 2001
 From: Steve Markgraf <steve@steve-m.de>
 Date: Mon, 10 Feb 2014 23:57:19 +0100
-Subject: [PATCH 4/5] lib: change default number of transfers to 15
+Subject: [PATCH 04/11] lib: change default number of transfers to 15
 
 So far we had 32 * 256KB which was a bit overkill,
 15 are more than enough.
@@ -14,12 +14,12 @@ number.
 
 Signed-off-by: Steve Markgraf <steve@steve-m.de>
 ---
- include/rtl-sdr.h |    5 +++--
- src/librtlsdr.c   |    2 +-
- src/rtl_fm.c      |    4 +---
- src/rtl_sdr.c     |    3 +--
- src/rtl_tcp.c     |    2 +-
- src/rtl_test.c    |    3 +--
+ include/rtl-sdr.h | 5 +++--
+ src/librtlsdr.c   | 2 +-
+ src/rtl_fm.c      | 4 +---
+ src/rtl_sdr.c     | 3 +--
+ src/rtl_tcp.c     | 2 +-
+ src/rtl_test.c    | 3 +--
  6 files changed, 8 insertions(+), 11 deletions(-)
 
 diff --git a/include/rtl-sdr.h b/include/rtl-sdr.h
@@ -130,5 +130,5 @@ index 8bf567e..9a6cfda 100644
  
  	if (do_exit) {
 -- 
-1.7.10.4
+2.1.4
 

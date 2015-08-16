@@ -1,0 +1,38 @@
+From c5dc459fc51d4b6721a7c0457ac0cddbb3213b2c Mon Sep 17 00:00:00 2001
+From: lcl <lcl@nanohome.be>
+Date: Wed, 6 May 2015 20:28:38 +0200
+Subject: [PATCH 07/11] Correct return code of e4k_reg_write().
+
+In contradiction with the documentation, e4k_reg_write() was
+returning the value 2 upon success (the number of bytes written),
+not zero as documented.
+Patched to return zero upon success.
+
+As a consequence, this corrects also the return value of
+e4k_reg_set_mask() and e4k_dc_offset_calibrate().
+---
+ src/tuner_e4k.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/src/tuner_e4k.c b/src/tuner_e4k.c
+index c2ec044..400e745 100644
+--- a/src/tuner_e4k.c
++++ b/src/tuner_e4k.c
+@@ -64,11 +64,13 @@ static const uint8_t width2mask[] = {
+  */
+ static int e4k_reg_write(struct e4k_state *e4k, uint8_t reg, uint8_t val)
+ {
++	int r;
+ 	uint8_t data[2];
+ 	data[0] = reg;
+ 	data[1] = val;
+ 
+-	return rtlsdr_i2c_write_fn(e4k->rtl_dev, e4k->i2c_addr, data, 2);
++	r = rtlsdr_i2c_write_fn(e4k->rtl_dev, e4k->i2c_addr, data, 2);
++	return r == 2 ? 0 : -1;
+ }
+ 
+ /*! \brief Read a register of the tuner chip
+-- 
+2.1.4
+

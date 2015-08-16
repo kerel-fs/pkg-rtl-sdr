@@ -1,13 +1,13 @@
 From 929beafc6ec34e83262522a193aface26de42926 Mon Sep 17 00:00:00 2001
 From: Steve Markgraf <steve@steve-m.de>
 Date: Sat, 8 Feb 2014 14:48:24 +0100
-Subject: [PATCH 2/2] lib: only print to stderr in tuner_r82xx_set_pll()
+Subject: [PATCH 02/11] lib: only print to stderr in tuner_r82xx_set_pll()
 
 Found by keenerd.
 
 Signed-off-by: Steve Markgraf <steve@steve-m.de>
 ---
- src/tuner_r82xx.c |    2 +-
+ src/tuner_r82xx.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/src/tuner_r82xx.c b/src/tuner_r82xx.c
@@ -24,5 +24,5 @@ index d07ba59..e03e034 100644
  		return 0;
  	}
 -- 
-1.7.10.4
+2.1.4
 

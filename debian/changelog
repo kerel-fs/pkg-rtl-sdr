@@ -1,3 +1,9 @@
+rtl-sdr (0.5.3-4) unstable; urgency=low
+
+  * Update to v0.5.3-12-ge3c03f7
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Sat, 08 Aug 2015 23:43:54 -0400
+
 rtl-sdr (0.5.3-3) unstable; urgency=low
 
   * Update to v0.5.3-5-g6ee5573

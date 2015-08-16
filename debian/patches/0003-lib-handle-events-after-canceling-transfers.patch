@@ -1,7 +1,7 @@
 From 5b0137abaf179e6ca4e90a6ea987a61823a09bb1 Mon Sep 17 00:00:00 2001
 From: Steve Markgraf <steve@steve-m.de>
 Date: Sun, 9 Feb 2014 15:50:32 +0100
-Subject: [PATCH 3/5] lib: handle events after canceling transfers
+Subject: [PATCH 03/11] lib: handle events after canceling transfers
 
 Otherwise the new transfer status does not propagate
 into the xfer->status and we try to cancel all transfers
@@ -12,7 +12,7 @@ compatibility.
 
 Signed-off-by: Steve Markgraf <steve@steve-m.de>
 ---
- src/librtlsdr.c |   25 +++++++++++++++----------
+ src/librtlsdr.c | 25 +++++++++++++++----------
  1 file changed, 15 insertions(+), 10 deletions(-)
 
 diff --git a/src/librtlsdr.c b/src/librtlsdr.c
@@ -73,5 +73,5 @@ index f21b187..5062827 100644
  			}
  		}
 -- 
-1.7.10.4
+2.1.4
 

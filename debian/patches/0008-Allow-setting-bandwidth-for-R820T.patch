@@ -1,0 +1,160 @@
+From d892279085491f9c610388da89bc701ef6ac632c Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Ji=C5=99=C3=AD=20Pinkava?= <j-pi@seznam.cz>
+Date: Tue, 17 Mar 2015 13:19:20 +0100
+Subject: [PATCH 08/11] Allow setting bandwidth for R820T
+
+This improves SDR performence for nearby channel interference.
+As a sideeffect also improves dynamic range becase ADC is not overloaded
+by onwanted singlas.
+
+Signed-off-by: Steve Markgraf <steve@steve-m.de>
+---
+ include/tuner_r82xx.h |  1 +
+ src/librtlsdr.c       | 18 ++++++++++--
+ src/tuner_r82xx.c     | 76 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 93 insertions(+), 2 deletions(-)
+
+diff --git a/include/tuner_r82xx.h b/include/tuner_r82xx.h
+index fd81e1d..f6c206a 100644
+--- a/include/tuner_r82xx.h
++++ b/include/tuner_r82xx.h
+@@ -115,5 +115,6 @@ int r82xx_standby(struct r82xx_priv *priv);
+ int r82xx_init(struct r82xx_priv *priv);
+ int r82xx_set_freq(struct r82xx_priv *priv, uint32_t freq);
+ int r82xx_set_gain(struct r82xx_priv *priv, int set_manual_gain, int gain);
++int r82xx_set_bandwidth(struct r82xx_priv *priv, int bandwidth,  uint32_t rate);
+ 
+ #endif
+diff --git a/src/librtlsdr.c b/src/librtlsdr.c
+index 9a3ebcd..0ee4123 100644
+--- a/src/librtlsdr.c
++++ b/src/librtlsdr.c
+@@ -126,6 +126,7 @@ struct rtlsdr_dev {
+ };
+ 
+ void rtlsdr_set_gpio_bit(rtlsdr_dev_t *dev, uint8_t gpio, int val);
++static int rtlsdr_set_if_freq(rtlsdr_dev_t *dev, uint32_t freq);
+ 
+ /* generic tuner interface functions, shall be moved to the tuner implementations */
+ int e4000_init(void *dev) {
+@@ -238,7 +239,20 @@ int r820t_set_freq(void *dev, uint32_t freq) {
+ 	rtlsdr_dev_t* devt = (rtlsdr_dev_t*)dev;
+ 	return r82xx_set_freq(&devt->r82xx_p, freq);
+ }
+-int r820t_set_bw(void *dev, int bw) { return 0; }
++
++int r820t_set_bw(void *dev, int bw) {
++	int r;
++	rtlsdr_dev_t* devt = (rtlsdr_dev_t*)dev;
++
++	r = r82xx_set_bandwidth(&devt->r82xx_p, bw, devt->rate);
++	if(r < 0)
++		return r;
++	r = rtlsdr_set_if_freq(devt, r);
++	if (r)
++		return r;
++	return rtlsdr_set_center_freq(devt, devt->freq);
++}
++
+ int r820t_set_gain(void *dev, int gain) {
+ 	rtlsdr_dev_t* devt = (rtlsdr_dev_t*)dev;
+ 	return r82xx_set_gain(&devt->r82xx_p, 1, gain);
+@@ -670,7 +684,7 @@ int rtlsdr_deinit_baseband(rtlsdr_dev_t *dev)
+ 	return r;
+ }
+ 
+-int rtlsdr_set_if_freq(rtlsdr_dev_t *dev, uint32_t freq)
++static int rtlsdr_set_if_freq(rtlsdr_dev_t *dev, uint32_t freq)
+ {
+ 	uint32_t rtl_xtal;
+ 	int32_t if_freq;
+diff --git a/src/tuner_r82xx.c b/src/tuner_r82xx.c
+index e03e034..f620238 100644
+--- a/src/tuner_r82xx.c
++++ b/src/tuner_r82xx.c
+@@ -1073,6 +1073,82 @@ int r82xx_set_gain(struct r82xx_priv *priv, int set_manual_gain, int gain)
+ 	return 0;
+ }
+ 
++/* Bandwidth contribution by low-pass filter. */
++static const int r82xx_if_low_pass_bw_table[] = {
++	1700000, 1600000, 1550000, 1450000, 1200000, 900000, 700000, 550000, 450000, 350000
++};
++
++#define FILT_HP_BW1 350000
++#define FILT_HP_BW2 380000
++int r82xx_set_bandwidth(struct r82xx_priv *priv, int bw, uint32_t rate)
++{
++	int rc;
++	unsigned int i;
++	int real_bw = 0;
++	uint8_t reg_0a;
++	uint8_t reg_0b;
++
++	if (bw > 7000000) {
++		// BW: 8 MHz
++		reg_0a = 0x10;
++		reg_0b = 0x0b;
++		priv->int_freq = 4570000;
++	} else if (bw > 6000000) {
++		// BW: 7 MHz
++		reg_0a = 0x10;
++		reg_0b = 0x2a;
++		priv->int_freq = 4570000;
++	} else if (bw > r82xx_if_low_pass_bw_table[0] + FILT_HP_BW1 + FILT_HP_BW2) {
++		// BW: 6 MHz
++		reg_0a = 0x10;
++		reg_0b = 0x6b;
++		priv->int_freq = 3570000;
++	} else {
++		reg_0a = 0x00;
++		reg_0b = 0x80;
++		priv->int_freq = 2300000;
++
++		if (bw > r82xx_if_low_pass_bw_table[0] + FILT_HP_BW1) {
++			bw -= FILT_HP_BW2;
++			priv->int_freq += FILT_HP_BW2;
++			real_bw += FILT_HP_BW2;
++		} else {
++			reg_0b |= 0x20;
++		}
++
++		if (bw > r82xx_if_low_pass_bw_table[0]) {
++			bw -= FILT_HP_BW1;
++			priv->int_freq += FILT_HP_BW1;
++			real_bw += FILT_HP_BW1;
++		} else {
++			reg_0b |= 0x40;
++		}
++
++		// find low-pass filter
++		for(i = 0; i < ARRAY_SIZE(r82xx_if_low_pass_bw_table); ++i) {
++			if (bw > r82xx_if_low_pass_bw_table[i])
++				break;
++		}
++		--i;
++		reg_0b |= 15 - i;
++		real_bw += r82xx_if_low_pass_bw_table[i];
++
++		priv->int_freq -= real_bw / 2;
++	}
++
++	rc = r82xx_write_reg_mask(priv, 0x0a, reg_0a, 0x10);
++	if (rc < 0)
++		return rc;
++
++	rc = r82xx_write_reg_mask(priv, 0x0b, reg_0b, 0xef);
++	if (rc < 0)
++		return rc;
++
++	return priv->int_freq;
++}
++#undef FILT_HP_BW1
++#undef FILT_HP_BW2
++
+ int r82xx_set_freq(struct r82xx_priv *priv, uint32_t freq)
+ {
+ 	int rc = -1;
+-- 
+2.1.4
+

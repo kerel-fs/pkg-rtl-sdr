@@ -5,7 +5,7 @@ Maintainer: Adam Cécile (Le_Vert) <gandalf@le-vert.net>
 Uploaders: A. Maitland Bottoms <bottoms@debian.org>
 Build-Depends: debhelper (>= 9.0.0~), cmake,
  libusb-1.0-0-dev [linux-any], libusb2-dev [kfreebsd-any]
-Standards-Version: 3.9.4
+Standards-Version: 3.9.6
 Homepage: http://sdr.osmocom.org/trac/wiki/rtl-sdr
 Vcs-Git: git://git.osmocom.org/rtl-sdr
 Vcs-Browser: http://cgit.osmocom.org/cgit/rtl-sdr/
