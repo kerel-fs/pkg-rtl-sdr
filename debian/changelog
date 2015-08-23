@@ -1,3 +1,12 @@
+rtl-sdr (0.5.3-5) unstable; urgency=medium
+
+  * Add watch fiule
+  * place rtl-sdr -n comm section (Closes: #758077)
+  * improve-librtlsdr-pc-file (Closes: #784912)
+  * improve-scanning-range-parsing (LP: #1469478)
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Sun, 23 Aug 2015 10:35:42 -0400
+
 rtl-sdr (0.5.3-4) unstable; urgency=low
 
   * Update to v0.5.3-12-ge3c03f7

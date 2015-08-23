@@ -8,3 +8,5 @@
 0009-New-functions-rtlsdr_set_tuner_bandwidth.patch
 0010-tools-allow-built-in-functions-for-newer-versions-of.patch
 0011-lib-check-for-libusb-init-failure.patch
+improve-librtlsdr-pc-file
+improve-scanning-range-parsing

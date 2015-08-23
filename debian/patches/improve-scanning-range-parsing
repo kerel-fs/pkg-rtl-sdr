@@ -1,0 +1,43 @@
+--- a/src/rtl_fm.c
++++ b/src/rtl_fm.c
+@@ -925,8 +925,21 @@
+ 	int i;
+ 	start = arg;
+ 	stop = strchr(start, ':') + 1;
++        if (stop == (char *)1) { // no stop or step given
++	  s->freqs[s->freq_len] = (uint32_t) atofs(start);
++	  s->freq_len++;
++	  return;
++	}
+ 	stop[-1] = '\0';
+ 	step = strchr(stop, ':') + 1;
++        if (step == (char *)1) { // no step given
++	  s->freqs[s->freq_len] = (uint32_t) atofs(start);
++	  s->freq_len++;
++	  s->freqs[s->freq_len] = (uint32_t) atofs(stop);
++	  s->freq_len++;
++	  stop[-1] = ':';
++	  return;
++	}
+ 	step[-1] = '\0';
+ 	for(i=(int)atofs(start); i<=(int)atofs(stop); i+=(int)atofs(step))
+ 	{
+--- a/src/rtl_power.c
++++ b/src/rtl_power.c
+@@ -436,8 +436,16 @@
+ 	/* hacky string parsing */
+ 	start = arg;
+ 	stop = strchr(start, ':') + 1;
++	if (stop == (char *)1) {
++	  fprintf(stderr, "Bad frequency range specification: %s\n", arg);
++	  exit(1);
++	}
+ 	stop[-1] = '\0';
+ 	step = strchr(stop, ':') + 1;
++	if (step == (char *)1) {
++	  fprintf(stderr, "Bad frequency range specification: %s\n", arg);
++	  exit(1);
++	}
+ 	step[-1] = '\0';
+ 	lower = (int)atofs(start);
+ 	upper = (int)atofs(stop);

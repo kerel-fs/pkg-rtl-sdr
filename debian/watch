@@ -1,0 +1,4 @@
+version=3
+opts="downloadurlmangle=s/refs\/tags/snapshot/,uversionmangle=s|(.*)git|1|" \
+ http://cgit.osmocom.org/rtl-sdr/refs/tags /rtl-sdr/snapshot/rtl-sdr-(\d.*)\.tar\.xz
+ 
