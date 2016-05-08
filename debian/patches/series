@@ -10,3 +10,4 @@
 0011-lib-check-for-libusb-init-failure.patch
 improve-librtlsdr-pc-file
 improve-scanning-range-parsing
+use-udev-uaccess-rules

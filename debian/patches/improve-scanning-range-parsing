@@ -1,3 +1,6 @@
+Description: better user input handling
+Author: A. Maitland Bottoms <bottoms@debian.org>
+
 --- a/src/rtl_fm.c
 +++ b/src/rtl_fm.c
 @@ -925,8 +925,21 @@

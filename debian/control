@@ -1,21 +1,26 @@
 Source: rtl-sdr
 Section: comm
 Priority: extra
-Maintainer: Adam Cécile (Le_Vert) <gandalf@le-vert.net>
-Uploaders: A. Maitland Bottoms <bottoms@debian.org>
-Build-Depends: debhelper (>= 9.0.0~), cmake,
- libusb-1.0-0-dev [linux-any], libusb2-dev [kfreebsd-any]
-Standards-Version: 3.9.6
+Maintainer: A. Maitland Bottoms <bottoms@debian.org>
+Uploaders: Adam Cécile (Le_Vert) <gandalf@le-vert.net>
+Build-Depends: cmake,
+               debhelper (>= 9.0.0~),
+               libusb-1.0-0-dev [linux-any],
+               libusb-dev [hurd-i386],
+               libusb2-dev [kfreebsd-any]
+Standards-Version: 3.9.8
 Homepage: http://sdr.osmocom.org/trac/wiki/rtl-sdr
-Vcs-Git: git://anonscm.debian.org/users/bottoms/pkg-rtl-sdr.git
-Vcs-Browser: http://anonscm.debian.org/cgit/users/bottoms/pkg-rtl-sdr.git/
+Vcs-Git: https://anonscm.debian.org/git/users/bottoms/pkg-rtl-sdr.git
+Vcs-Browser: https://anonscm.debian.org/cgit/users/bottoms/pkg-rtl-sdr.git/
 
 Package: librtlsdr-dev
 Section: libdevel
 Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
-Depends: librtlsdr0 (= ${binary:Version}), libusb-1.0-0-dev [linux-any],
- libusb2-dev [kfreebsd-any], ${misc:Depends}
+Depends: librtlsdr0 (= ${binary:Version}),
+         libusb-1.0-0-dev [linux-any],
+         libusb2-dev [kfreebsd-any],
+         ${misc:Depends}
 Description: Software defined radio receiver for Realtek RTL2832U (development)
  rtl-sdr is a software defined radio (SDR) receiver software for certain
  low-cost DVB-T/DAB(+) USB dongles based on the Realtek RTL2832U chip.
@@ -26,18 +31,17 @@ Package: librtlsdr0
 Section: libs
 Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}
 Multi-Arch: same
 Description: Software defined radio receiver for Realtek RTL2832U (library)
  rtl-sdr is a software defined radio (SDR) receiver software for certain
  low-cost DVB-T/DAB(+) USB dongles based on the Realtek RTL2832U chip.
  .
  This package contains the shared library.
- 
+
 Package: rtl-sdr
-Section: comm
 Architecture: any
-Depends: librtlsdr0 (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
+Depends: librtlsdr0 (= ${binary:Version}), ${misc:Depends}, ${shlibs:Depends}
 Description: Software defined radio receiver for Realtek RTL2832U (tools)
  rtl-sdr is a software defined radio (SDR) receiver software for certain
  low-cost DVB-T/DAB(+) USB dongles based on the Realtek RTL2832U chip.

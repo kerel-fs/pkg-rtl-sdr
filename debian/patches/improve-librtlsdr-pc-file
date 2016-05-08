@@ -1,3 +1,6 @@
+Description: fix bug 784912
+Author: A. Maitland Bottoms <bottoms@debian.org>
+
 # librtlsdr.pc should declare -lusb-1.0 in Libs.private section
 # to exclude usb library from dynamic linking.
 # References to libusb headers are not needed in Cflags, since these headers

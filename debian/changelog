@@ -1,3 +1,11 @@
+rtl-sdr (0.5.3-6) unstable; urgency=medium
+
+  * Use ENV{ID_SOFTWARE_RADIO}=1 in udev rules (Closes: #823089)
+  * Enable DETACH_KERNEL_DRIVER (Closes: 823022)
+  * Make myself maintainer so I get the bug reports
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Sun, 08 May 2016 12:12:13 -0400
+
 rtl-sdr (0.5.3-5) unstable; urgency=medium
 
   * Add watch fiule

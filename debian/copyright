@@ -9,7 +9,7 @@ Comment:
  Debian packages sponsored by A. Maitland Bottoms,
  based upon packaging work by Adam Cécile.
  .
- Upstream Authors: 
+ Upstream Authors:
  Steve Markgraf <steve@steve-m.de>
  Dimitri Stolnikov <horiz0n@gmx.net>
  Hoernchen <la@tfc-server.de>
@@ -68,8 +68,13 @@ Copyright: Steve Markgraf <steve@steve-m.de>
 	   Dimitri Stolnikov <horiz0n@gmx.net>
 License: GPL-2.0+
 
-Files: src/tuner_r820t.c include/tuner_fc2580.h include/tuner_r820t.h
+Files: include/tuner_fc2580.h
 Copyright: Steve Markgraf <steve@steve-m.de>
+License: GPL-2.0+
+
+Files: src/tuner_r82xx.c include/tuner_r82xx.h
+Copyright: 2013 Mauro Carvalho Chehab <mchehab@redhat.com>
+           2013 Steve Markgraf <steve@steve-m.de>
 License: GPL-2.0+
 
 Files: src/getopt/getopt.c src/getopt/getopt.h
