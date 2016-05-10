@@ -1,3 +1,9 @@
+rtl-sdr (0.5.3-7) unstable; urgency=medium
+
+  * better udev rules (more like camera devices in libgphoto2-6)
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Tue, 10 May 2016 19:20:27 -0400
+
 rtl-sdr (0.5.3-6) unstable; urgency=medium
 
   * Use ENV{ID_SOFTWARE_RADIO}=1 in udev rules (Closes: #823089)

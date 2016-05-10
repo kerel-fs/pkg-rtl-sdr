@@ -12,7 +12,7 @@ Having these rtl-sdr packages installed likely means that these
 devices should be available for the alternate software defined
 radio use.
 
-The librtlsdr0 package in Debian has two configuration files to
+The librtlsdr0 package in Debian has configuration files to
 help manage the conflicting uses:
 
 1. Blacklists DVB-T kernel modules provided by the Linux kernel
@@ -34,8 +34,13 @@ Not that if rtl-sdr applications are then run, they will complain about
 failing to open the device. In that case, restore the blacklist and
 unplug/plug the USB stick.
 
+If librtlsdr-blacklist.conf does not exist, then rtl-sdr was built
+with the DETACH_KERNEL_DRIVER option.
+
 2. Permissions
 --------------
+
+Devices are available to users in the plugdev group.
 
 The librtlsdr0 package installs these default rules:
 /lib/udev/rules.d/60-librtlsdr0.rules
