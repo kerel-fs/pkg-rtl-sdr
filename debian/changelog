@@ -1,3 +1,10 @@
+rtl-sdr (0.5.3-9) unstable; urgency=medium
+
+  * Edit of debian/librtlsdr0.udev in 0.5.3-8 was a no-op. Real fix
+    done to debian/patches/use-udev-uaccess-rules. (Closes: #825073)
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Wed, 25 May 2016 17:19:57 -0400
+
 rtl-sdr (0.5.3-8) unstable; urgency=high
 
   * Fix syntax errors for systemd-udevd in udev rules (Closes: #825073)
