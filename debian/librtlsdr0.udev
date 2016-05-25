@@ -16,77 +16,77 @@
 #
 
 # original RTL2832U vid/pid (hama nano, for example)
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0bda", ATTRS{idProduct}=="2832", ENV{ID_SOFTWARE_RADIO}=1
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0bda", ATTRS{idProduct}=="2832", ENV{ID_SOFTWARE_RADIO}="1"
 
 # ezcap EzTV668 (E4000)
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0bda", ATTRS{idProduct}=="2838", ENV{ID_SOFTWARE_RADIO}=1
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0bda", ATTRS{idProduct}=="2838", ENV{ID_SOFTWARE_RADIO}="1"
 
 # Terratec Cinergy T Stick Black (rev 1) (FC0012)
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0ccd", ATTRS{idProduct}=="00a9", ENV{ID_SOFTWARE_RADIO}=1
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0ccd", ATTRS{idProduct}=="00a9", ENV{ID_SOFTWARE_RADIO}="1"
 
 # Terratec NOXON rev 1 (FC0013)
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0ccd", ATTRS{idProduct}=="00b3", ENV{ID_SOFTWARE_RADIO}=1
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0ccd", ATTRS{idProduct}=="00b4", ENV{ID_SOFTWARE_RADIO}=1
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0ccd", ATTRS{idProduct}=="00b7", ENV{ID_SOFTWARE_RADIO}=1
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0ccd", ATTRS{idProduct}=="00c6", ENV{ID_SOFTWARE_RADIO}=1
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0ccd", ATTRS{idProduct}=="00b3", ENV{ID_SOFTWARE_RADIO}="1"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0ccd", ATTRS{idProduct}=="00b4", ENV{ID_SOFTWARE_RADIO}="1"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0ccd", ATTRS{idProduct}=="00b7", ENV{ID_SOFTWARE_RADIO}="1"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0ccd", ATTRS{idProduct}=="00c6", ENV{ID_SOFTWARE_RADIO}="1"
 
 # Terratec Cinergy T Stick RC (Rev.3) (E4000)
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0ccd", ATTRS{idProduct}=="00d3", ENV{ID_SOFTWARE_RADIO}=1
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0ccd", ATTRS{idProduct}=="00d3", ENV{ID_SOFTWARE_RADIO}="1"
 
 # Terratec T Stick PLUS (E4000)
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0ccd", ATTRS{idProduct}=="00d7", ENV{ID_SOFTWARE_RADIO}=1
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0ccd", ATTRS{idProduct}=="00d7", ENV{ID_SOFTWARE_RADIO}="1"
 
 # Terratec NOXON rev 2 (E4000)
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0ccd", ATTRS{idProduct}=="00e0", ENV{ID_SOFTWARE_RADIO}=1
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0ccd", ATTRS{idProduct}=="00e0", ENV{ID_SOFTWARE_RADIO}="1"
 
 # Compro Videomate U620F (E4000)
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="185b", ATTRS{idProduct}=="0620", ENV{ID_SOFTWARE_RADIO}=1
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="185b", ATTRS{idProduct}=="0620", ENV{ID_SOFTWARE_RADIO}="1"
 
 # Compro Videomate U650F (E4000)
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="185b", ATTRS{idProduct}=="0650", ENV{ID_SOFTWARE_RADIO}=1
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="185b", ATTRS{idProduct}=="0650", ENV{ID_SOFTWARE_RADIO}="1"
 
 # Compro Videomate U680F (E4000)
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="185b", ATTRS{idProduct}=="0680", ENV{ID_SOFTWARE_RADIO}=1
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="185b", ATTRS{idProduct}=="0680", ENV{ID_SOFTWARE_RADIO}="1"
 
 # GTek T803 (FC0012)
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="1f4d", ATTRS{idProduct}=="b803", ENV{ID_SOFTWARE_RADIO}=1
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="1f4d", ATTRS{idProduct}=="b803", ENV{ID_SOFTWARE_RADIO}="1"
 
 # Lifeview LV5TDeluxe (FC0012)
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="1f4d", ATTRS{idProduct}=="c803", ENV{ID_SOFTWARE_RADIO}=1
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="1f4d", ATTRS{idProduct}=="c803", ENV{ID_SOFTWARE_RADIO}="1"
 
 # MyGica TD312 (FC0012)
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="1f4d", ATTRS{idProduct}=="d286", ENV{ID_SOFTWARE_RADIO}=1
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="1f4d", ATTRS{idProduct}=="d286", ENV{ID_SOFTWARE_RADIO}="1"
 
 # PROlectrix DV107669 (FC0012)
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="1f4d", ATTRS{idProduct}=="d803", ENV{ID_SOFTWARE_RADIO}=1
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="1f4d", ATTRS{idProduct}=="d803", ENV{ID_SOFTWARE_RADIO}="1"
 
 # Zaapa ZT-MINDVBZP (FC0012)
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b80", ATTRS{idProduct}=="d398", ENV{ID_SOFTWARE_RADIO}=1
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b80", ATTRS{idProduct}=="d398", ENV{ID_SOFTWARE_RADIO}="1"
 
 # Twintech UT-40 (FC0013)
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b80", ATTRS{idProduct}=="d3a4", ENV{ID_SOFTWARE_RADIO}=1
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b80", ATTRS{idProduct}=="d3a4", ENV{ID_SOFTWARE_RADIO}="1"
 
 # Dexatek DK DVB-T Dongle (Logilink VG0002A) (FC2580)
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="1d19", ATTRS{idProduct}=="1101", ENV{ID_SOFTWARE_RADIO}=1
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="1d19", ATTRS{idProduct}=="1101", ENV{ID_SOFTWARE_RADIO}="1"
 
 # Dexatek DK DVB-T Dongle (MSI DigiVox mini II V3.0)
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="1d19", ATTRS{idProduct}=="1102", ENV{ID_SOFTWARE_RADIO}=1
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="1d19", ATTRS{idProduct}=="1102", ENV{ID_SOFTWARE_RADIO}="1"
 
 # Dexatek DK 5217 DVB-T Dongle (FC2580)
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="1d19", ATTRS{idProduct}=="1103", ENV{ID_SOFTWARE_RADIO}=1
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="1d19", ATTRS{idProduct}=="1103", ENV{ID_SOFTWARE_RADIO}="1"
 
 # Genius TVGo DVB-T03 USB dongle (Ver. B)
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0458", ATTRS{idProduct}=="707f", ENV{ID_SOFTWARE_RADIO}=1
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0458", ATTRS{idProduct}=="707f", ENV{ID_SOFTWARE_RADIO}="1"
 
 # GIGABYTE GT-U7300 (FC0012)
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b80", ATTRS{idProduct}=="d393", ENV{ID_SOFTWARE_RADIO}=1
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b80", ATTRS{idProduct}=="d393", ENV{ID_SOFTWARE_RADIO}="1"
 
 # DIKOM USB-DVBT HD
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b80", ATTRS{idProduct}=="d394", ENV{ID_SOFTWARE_RADIO}=1
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b80", ATTRS{idProduct}=="d394", ENV{ID_SOFTWARE_RADIO}="1"
 
 # Peak 102569AGPK (FC0012)
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b80", ATTRS{idProduct}=="d395", ENV{ID_SOFTWARE_RADIO}=1
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b80", ATTRS{idProduct}=="d395", ENV{ID_SOFTWARE_RADIO}="1"
 
 # SVEON STV20 DVB-T USB & FM (FC0012)
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b80", ATTRS{idProduct}=="d39d", ENV{ID_SOFTWARE_RADIO}=1
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b80", ATTRS{idProduct}=="d39d", ENV{ID_SOFTWARE_RADIO}="1"
 

@@ -1,3 +1,9 @@
+rtl-sdr (0.5.3-8) unstable; urgency=high
+
+  * Fix syntax errors for systemd-udevd in udev rules (Closes: #825073)
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Tue, 24 May 2016 21:08:50 -0400
+
 rtl-sdr (0.5.3-7) unstable; urgency=medium
 
   * better udev rules (more like camera devices in libgphoto2-6)
