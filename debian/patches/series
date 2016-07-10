@@ -11,3 +11,4 @@
 improve-librtlsdr-pc-file
 improve-scanning-range-parsing
 use-udev-uaccess-rules
+hurd-usb

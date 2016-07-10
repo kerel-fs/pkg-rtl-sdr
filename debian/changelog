@@ -1,3 +1,9 @@
+rtl-sdr (0.5.3-10) unstable; urgency=medium
+
+  * remove rtl-sdr-blacklist.conf on upgrade. Thanks Bob! (Closes: #829517)
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Sat, 09 Jul 2016 23:38:24 -0400
+
 rtl-sdr (0.5.3-9) unstable; urgency=medium
 
   * Edit of debian/librtlsdr0.udev in 0.5.3-8 was a no-op. Real fix
