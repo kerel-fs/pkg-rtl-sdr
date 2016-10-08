@@ -1,3 +1,10 @@
+rtl-sdr (0.5.3-11) unstable; urgency=medium
+
+  * correct invocation of rm_conffile (Thanks Chris!) (Closes: #838161)
+  * drop uploaders line on advice of MIA team. (Closes: #836590)
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Sat, 08 Oct 2016 11:17:47 -0400
+
 rtl-sdr (0.5.3-10) unstable; urgency=medium
 
   * remove rtl-sdr-blacklist.conf on upgrade. Thanks Bob! (Closes: #829517)

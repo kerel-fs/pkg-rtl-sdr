@@ -2,7 +2,6 @@ Source: rtl-sdr
 Section: comm
 Priority: extra
 Maintainer: A. Maitland Bottoms <bottoms@debian.org>
-Uploaders: Adam Cécile (Le_Vert) <gandalf@le-vert.net>
 Build-Depends: cmake,
                debhelper (>= 9.0.0~),
                libusb-1.0-0-dev [linux-any],
