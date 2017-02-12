@@ -1,13 +1,3 @@
-0002-lib-only-print-to-stderr-in-tuner_r82xx_set_pll.patch
-0003-lib-handle-events-after-canceling-transfers.patch
-0004-lib-change-default-number-of-transfers-to-15.patch
-0005-rtl_tcp-make-all-global-variables-static.patch
-0006-cmake-include-resource-file-for-MSVC-builds.patch
-0007-Correct-return-code-of-e4k_reg_write.patch
-0008-Allow-setting-bandwidth-for-R820T.patch
-0009-New-functions-rtlsdr_set_tuner_bandwidth.patch
-0010-tools-allow-built-in-functions-for-newer-versions-of.patch
-0011-lib-check-for-libusb-init-failure.patch
 improve-librtlsdr-pc-file
 improve-scanning-range-parsing
 use-udev-uaccess-rules

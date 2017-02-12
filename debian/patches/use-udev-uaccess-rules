@@ -3,12 +3,8 @@ Author: A. Maitland Bottoms <bottoms@debian.org>
 
 --- a/rtl-sdr.rules
 +++ b/rtl-sdr.rules
-@@ -13,127 +13,127 @@
+@@ -16,127 +16,127 @@
  #
- # You should have received a copy of the GNU General Public License
- # along with this program.  If not, see <http://www.gnu.org/licenses/>.
--#
-+# MODE="0664", GROUP="plugdev"
  
  # original RTL2832U vid/pid (hama nano, for example)
 -SUBSYSTEMS=="usb", ATTRS{idVendor}=="0bda", ATTRS{idProduct}=="2832", MODE:="0666"
@@ -85,6 +81,10 @@ Author: A. Maitland Bottoms <bottoms@debian.org>
  # Astrometa DVB-T/DVB-T2 (R828D)
 -SUBSYSTEMS=="usb", ATTRS{idVendor}=="15f4", ATTRS{idProduct}=="0131", MODE:="0666"
 +SUBSYSTEMS=="usb", ATTRS{idVendor}=="15f4", ATTRS{idProduct}=="0131", ENV{ID_SOFTWARE_RADIO}="1", MODE="0660", GROUP="plugdev"
+ 
+ # HanfTek DAB+FM+DVB-T
+-SUBSYSTEMS=="usb", ATTRS{idVendor}=="15f4", ATTRS{idProduct}=="0133", MODE:="0666"
++SUBSYSTEMS=="usb", ATTRS{idVendor}=="15f4", ATTRS{idProduct}=="0133", ENV{ID_SOFTWARE_RADIO}="1", MODE="0660", GROUP="plugdev"
  
  # Compro Videomate U620F (E4000)
 -SUBSYSTEMS=="usb", ATTRS{idVendor}=="185b", ATTRS{idProduct}=="0620", MODE:="0666"

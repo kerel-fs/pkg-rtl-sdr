@@ -1,4 +1,3 @@
 version=3
-opts="downloadurlmangle=s/refs\/tags/snapshot/,uversionmangle=s|(.*)git|1|" \
- http://cgit.osmocom.org/rtl-sdr/refs/tags /rtl-sdr/snapshot/rtl-sdr-(\d.*)\.tar\.xz
- 
+opts=filenamemangle=s/.+\/v?(\d\S+)\.tar\.gz/librtlsdr-$1\.tar\.gz/ \
+ https://github.com/librtlsdr/librtlsdr/tags .*/v?(\d\S+)\.tar\.gz

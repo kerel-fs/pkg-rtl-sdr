@@ -1,3 +1,10 @@
+rtl-sdr (0.7.0-1) unstable; urgency=medium
+
+  * Change upstream from Osmocom to https://github.com/librtlsdr/librtlsdr
+  * Import Upstream version 0.7.0
+
+ -- Fabian P. Schmidt <kerel-fs@gmx.de>  Sun, 12 Feb 2017 21:38:31 +0100
+
 rtl-sdr (0.5.3-11) unstable; urgency=medium
 
   * correct invocation of rm_conffile (Thanks Chris!) (Closes: #838161)
